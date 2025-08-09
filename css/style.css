@@ -86,48 +86,27 @@ header {
 }
 
 
-/* Section 4 */
+/* Section 3 */
 .about-text {
   padding: 40px 50px;
-  margin: 50px 0px;
+  margin: 100px 0px;
   text-align: center;
-  background-color: rgb(157, 171, 134, 0.25);
+  /* background-color: rgb(157, 171, 134, 0.25); */
   width: 100%;
   font-size: 20px;
+  font-style: italic;
 }
 
 .about-text p {
   margin-bottom: 0px;
 }
 
-.about-list {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 10px 0px;
-  margin-bottom: 20px;
-}
-
-.about-list-title {
-  padding: 15px 0px;
-}
-
-.list-item {
-  list-style: none;
-  text-align: left;
-  font-size: 18px;
-}
-
-
-
-
-
-/* Section 3 */
 .nutrition-signup {
   width: 50%;
-  margin: 60px auto;
-  padding: 20px;
+  margin: 100px auto;
+  padding: 40px;
   text-align: center;
+  border: 1px solid #E08F62;
 }
 
 .nutrition-signup h2, .nutrition-signup h3 {
@@ -145,6 +124,42 @@ header {
   font-weight: bold;
   margin-top: 10px;
 }
+
+
+/* Section 4 */
+.section4-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 200px;
+  margin-bottom: 50px;
+  padding: 20px 0px;
+}
+
+.section4-img {
+  height: 500px;
+  width: auto;
+  border-radius: 15px;
+}
+
+.next-steps-list {
+  width: 80%;
+  padding: 10px 0px;
+  margin-bottom: 20px;
+}
+
+.section4-title {
+  padding: 15px 0px;
+}
+
+.list-item {
+  list-style: none;
+  text-align: left;
+  font-size: 22px;
+  padding: 8px 0px;
+}
+
+
 
 /* Footer Styling */
 
