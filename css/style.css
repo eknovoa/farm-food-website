@@ -1,0 +1,256 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Lora', serif;
+}
+
+body, header {
+  background-color: #DED7B1;
+}
+
+/* Header Styling */
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.navbar li {
+  padding: 10px;
+}
+
+.navbar li a {
+  text-decoration: none;
+  font-size: 20px;
+} 
+
+.nav-link:hover {
+  cursor: pointer;
+  opacity: 0.75;
+  border-bottom: 2px solid #E08F62;
+}
+
+
+
+/* Main Content Styling */
+
+.container {
+  min-height: 100%;
+}
+
+.main-section1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.farm-food-intro-text p {
+  padding: 50px 30px;
+  width: 100%;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75em;
+}
+
+.highlight {
+  background-color: rgba(224, 143, 98, 0.5);
+  padding: 0 5px;
+}
+
+.main-section1 video {
+  max-width: 100%;
+  height: auto;
+  margin-top: 100px;
+}
+
+.main-section2-content {
+  background-color: #9DAB86;
+  width: 100%;
+}
+
+.main-section2 {
+  display: inline;
+  text-align: center;
+}
+
+.collapse .navbar-collapse ul {
+  text-align: center;
+}
+
+.row1 {
+  display: inline-block;
+}
+
+.row2 {
+  display: inline-block;
+}
+
+.logo1, .logo2, .logo3, .logo4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  padding: 30px 30px;
+  height: 240px;
+}
+
+.logo1 h5, .logo2 h5, .logo3 h5, .logo4 h5 {
+  padding-left: 20px;
+}
+
+.main-section3 {
+  width: 50%;
+  margin: 0 auto;
+  padding: 200px 0px;
+}
+
+.signup-button {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.sec3-content h2, .sec3-content h3 {
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-section3 button {
+  background-color: #E08F62;
+  align-items: center;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 10px 50px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+/* Footer Styling */
+
+#footer {
+  display: block;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+
+.curve svg {
+  display: block;
+}
+
+
+#footer .copyright {
+  text-align: center;
+  bottom: 0;
+  background-color: #9DAB86;
+  padding-bottom: 20px;
+}
+
+#footer .newsletter {
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+#footer .section-2 {
+  background-color: #9DAB86;
+}
+
+#footer .section-2 button {
+  background-color: #CC7351;
+  align-items: center;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 10px 50px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+
+.email-subscribe {
+  margin: 0 auto;
+  text-align: center;
+  height: auto;
+  width: 35%;
+  padding-bottom: 50px;
+}
+
+#footer .section-2 input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+/* Shopping Styling */
+
+.shopping-item {
+  padding: 10px 20px;
+}
+
+.shopping-item:hover {
+  background-color: #6D8B74;
+  
+}
+
+
+
+
+/* Responsive Screen Styling */
+
+@media only screen and (max-width: 650px) {
+  .farm-food-intro-text {
+    font-size: 12px;
+  }
+  
+}
+@media only screen and (min-width: 1000px) and (max-width: 1200px) {
+  
+}
+
+@media only screen and (max-width: 990px) {
+  
+}
