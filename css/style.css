@@ -91,7 +91,6 @@ header {
   padding: 40px 50px;
   margin: 100px 0px;
   text-align: center;
-  /* background-color: rgb(157, 171, 134, 0.25); */
   width: 100%;
   font-size: 20px;
   font-style: italic;
@@ -160,6 +159,67 @@ header {
 }
 
 
+/* Meet Team Page Styling */
+
+.team-pics {
+  margin-top: 130px;
+}
+
+.founders-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.founders-text {
+  margin-left: 50px;
+}
+
+.founders-description, .meet-founders-title {
+  text-align: left;
+}
+
+
+.meet-founders-title {
+  padding-bottom: 15px;
+}
+
+.other-members {
+  padding-top: 55px;
+}
+
+.members-text {
+  padding-bottom: 55px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.members-pics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.founders-img {
+  height: 350px;
+  width: auto;
+  border-radius: 25px;
+  border: 10px double #9DAB86;
+  padding: 5px;
+}
+
+.member-img {
+  height: 250px;
+  width: auto;
+  border-radius: 25px;
+  border: 10px solid white;
+  margin: 5px;
+}
+
+
 
 /* Footer Styling */
 
@@ -198,28 +258,15 @@ header {
 
 #footer .section-2 button {
   background-color: #CC7351;
-  align-items: center;
-  border: 0;
+  border: none;
   border-radius: 100px;
-  box-sizing: border-box;
   color: #ffffff;
-  cursor: pointer;
-  display: inline-flex;
-  justify-content: center;
-  max-width: 480px;
-  min-height: 40px;
-  min-width: 0px;
-  overflow: hidden;
   padding: 10px 50px;
-  text-align: center;
-  touch-action: manipulation;
-  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
+  text-align: center;  
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.2em;
+  margin-top: 10px;
 }
 
 .email-subscribe {
@@ -247,6 +294,9 @@ header {
   background-color: #6D8B74;
   
 }
+
+
+
 
 
 
