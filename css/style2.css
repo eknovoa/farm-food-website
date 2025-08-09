@@ -34,30 +34,17 @@ form label {
   padding-top: 20px;
 }
 
-form textarea {
-  height: 200px;
+textarea {
+  resize: none;
+  max-height: 300px;
 }
 
-form input[type=submit] {
+.send-message-btn {
   background-color: #CC7351;
-  align-items: center;
-  border: 0;
+  border: none;
   border-radius: 100px;
-  box-sizing: border-box;
   color: #ffffff;
-  cursor: pointer;
-  justify-content: center;
-  max-width: 480px;
-  min-height: 40px;
-  min-width: 0px;
-  overflow: hidden;
   padding: 10px 50px;
-  text-align: center;
-  touch-action: manipulation;
-  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.2em;
