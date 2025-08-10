@@ -1,0 +1,21 @@
+export const shopping_items = [
+  {id:1,name: "Green Beans", count: 5, price: 3.00, desc: " per lb", img: "green-beans.jpg"},
+  {id: 2, name: "Lettuce", count: 3, price: 1.50, desc: " per lb", img: "lettuce.jpg"},
+  {id: 3, name: "Zucchini Squash",  count: 5, price: 0.75, desc: " each", img: "squash.jpg"},
+  {id: 4, name: "Artichokes",count: 4, price: 1.25, desc: " each", img: "artichokes.jpg"},
+  {id: 5, name: "Okra", count: 2, price: 3.00, desc: " per lb", img: "okra.jpg"},
+  {id: 6, name: "Cauliflower", count: 1, price: 2.50, desc: " each", img: "cauliflower.jpg"},
+  {id: 7, name: "Bell Pepppers", count: 1, price: 0.50, desc: " each", img: "bell-pepper.jpg"},
+  {id: 8, name: "Whole Carrots",  count: 6, price: 1.00, desc: " per lb", img: "carrots.jpg"},
+  {id: 9, name: "Corn", count: 3, price: 1.00, desc: "each", img: "corn.jpg"},
+  {id: 10, name: "Radish",  count: 2, price: 1.50, desc: " per bunch", img: "radish.jpg"},
+  {id: 11, name: "Chili Peppers",  count: 1, price: 1.50, desc: " per lb", img:"chili-pepper.jpg"},
+  {id: 12, name: "Hot Peppers",  count: 1, price: 1.50, desc: " per lb", img: "hot-peppers.jpg"},
+  {id: 13, name: "White Onions",  count: 4, price: 1.00, desc: " each", img: "white-onions.jpg"},
+  {id: 14, name: "Pasture Raised Eggs",  count: 5, price: 6.00, desc: " per dozen", img: "eggs.jpg"},
+  {id: 15, name: "Blueberries",  count: 5, price: 5.00, desc: " per pint", img: "blueberries.jpg"},
+  {id: 16, name: "Tomatoes", count: 3, price: 2.00, desc: " per pint", img: "tomatoes.jpg"},
+  {id: 17, name: "Raw Honey", count: 5, price: 15.00, desc: " per 40oz bottle", img: "honey.jpg"},
+  {id: 18, name: "Grass Fed Whole Milk", count: 3, price: 5.00, desc: " per gallon", img: "milk.jpg"},
+  {id: 19, name: "Market Bag", count: 2, price: 10.00, desc: " each", img: "market-bag.jpg"}
+];
