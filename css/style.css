@@ -36,7 +36,18 @@ header {
   border-bottom: 2px solid #E08F62;
 }
 
+.shopping-cart-container {
+  display: inline-block;
+  position: relative;
+}
 
+.shopping-cart-count {
+  position: absolute;
+  bottom: -13px;
+  right: -2px;
+  z-index: 1;
+  visibility: hidden;
+}
 
 /* Main Content Styling */
 
@@ -408,6 +419,14 @@ hr {
   color: black;
 }
 
+
+/* After Purchase Styling */
+
+lottie-player {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+}
 
 
 

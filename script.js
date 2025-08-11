@@ -1,7 +1,10 @@
 import { shopping_items } from '/data.js';
 
+console.log('My script is loading...');
+
 // empty array that will stored the shopping cart items
 let cart = JSON.parse(localStorage.getItem("shopping-items")) || [];
+console.log(cart);
 let currentAmount = 0;
 
 const shop = document.getElementById('shop');
@@ -16,7 +19,7 @@ function getShopHtml() {
       <img class="item-img" src="images/shop-pictures/${item.img}" alt="picture of ${item.name}">
       <h5 class="item-title">${item.name}</h5>
       <h6 class="item-price">$${item.price} ${item.desc}</h6>
-      <button class="add-cart-btn">Add to Cart</button>
+      <button class="add-cart-btn" data-add="${item.id}">Add to Cart</button>
     </div>
     `
   });
@@ -24,10 +27,43 @@ function getShopHtml() {
 }
 
 function generateShop() {
-  shop.innerHTML = getShopHtml();    
+  if (shop) {
+    shop.innerHTML = getShopHtml();   
+  } 
 };
 
-generateShop();
+
+document.addEventListener("DOMContentLoaded", function() {
+  generateShop();
+  updateCartCount();
+});
+
+function updateCartCount() {
+  const cartCountElement = document.querySelector(".shopping-cart-count");
+
+  if (cart.length > 0) {
+    cartCountElement.style.visibility = 'visible';
+    cartCountElement.textContent = cart.length;
+  } else {
+    cartCountElement.style.visibility = 'hidden';
+  }
+}
+
+/* Add to Cart button */
+
+document.addEventListener("click", function(event) {
+  if (event.target.dataset.add) {
+    addToCart(event.target.dataset.add);
+  }
+});
+
+function addToCart(id) {
+  let foundItem = shopping_items.find(item => item.id === Number(id));
+  cart.push(foundItem);
+  localStorage.setItem("shopping-items", JSON.stringify(cart));
+  updateCartCount();
+}
+
 
 
 

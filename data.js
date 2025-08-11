@@ -1,5 +1,5 @@
 export const shopping_items = [
-  {id:1,name: "Green Beans", count: 5, price: 3.00, desc: " per lb", img: "green-beans.jpg"},
+  {id: 1,name: "Green Beans", count: 5, price: 3.00, desc: " per lb", img: "green-beans.jpg"},
   {id: 2, name: "Lettuce", count: 3, price: 1.50, desc: " per lb", img: "lettuce.jpg"},
   {id: 3, name: "Zucchini Squash",  count: 5, price: 0.75, desc: " each", img: "squash.jpg"},
   {id: 4, name: "Artichokes",count: 4, price: 1.25, desc: " each", img: "artichokes.jpg"},
