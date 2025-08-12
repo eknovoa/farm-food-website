@@ -759,7 +759,22 @@ lottie-player {
 }
 
 @media (min-width: 480px) and (max-width: 768px) {
-  
+  .section4-part2 {
+    margin-left: 30px;
+  }
+
+  .section2-content {
+    width: 100%;
+  }
+
+  .founders-img {
+    width: 350px;
+    height: auto;
+  }
+
+  .checkout-sub-container {
+    width: 80%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
