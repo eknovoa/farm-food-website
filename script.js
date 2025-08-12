@@ -32,9 +32,73 @@ function generateShop() {
   } 
 };
 
+function getOrderNumbers() {
+  let price = cart.reduce(function(total, item) {
+    return total + item.price;
+  }, 0)
+  let tax = price * 0.0825;
+  let total = tax + price;
+
+  return [price.toFixed(2), tax.toFixed(2), total.toFixed(2)];
+}
+
+
+function getOrderSummary() {
+  let [price, tax, totalPrice] = getOrderNumbers();
+  console.log(price, tax, totalPrice);
+  document.getElementById('totalPrice').textContent = price;
+  document.getElementById('tax').textContent = tax;
+  document.getElementById('totalPriceTax').textContent = totalPrice;
+}
+
+const bag = document.querySelector('.cart-items-container');
+
+function getBagHtml() {
+  let bagHtml = ``;
+
+  if (cart.length !== 0) {
+
+    document.querySelector('.number-in-cart').innerHTML = cart.length;
+
+    cart.forEach(function(item) {
+      bagHtml += `
+        <div class="cart-item-container">
+              <div class="img-container"></div>
+              <div class="cart-item-details">
+                <div class="cart-item-description">
+                  <p class="cart-item-name">${item.name}</p>
+                  <p class="cart-item-price">Item Price: $${item.price}</p> 
+                </div>
+                <div>
+                  <label for="cart-qty">Qty:</label>
+                  <input class="cart-quantity-input" id="cart-qty" name="cart-qty" type="number" value="5">
+                </div>
+                <div class="cart-btns">
+                  <button class="cart-update-btn">Update Count</button>
+                  <button class="cart-remove-btn">Remove Item</button>
+                </div>
+              </div>
+        </div>
+      `
+      })
+      getOrderSummary();
+  } else {
+    bagHtml += `
+      <p class="no-items">No Items in Shopping Cart</p>
+    `;
+  }
+  return bagHtml;
+}
+
+function generateBag() {  
+  if (bag) {
+    bag.innerHTML = getBagHtml(); 
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   generateShop();
+  generateBag();
   updateCartCount();
 });
 

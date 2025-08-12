@@ -10,7 +10,6 @@
     
     <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/style2.css" type="text/css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
@@ -25,100 +24,67 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="index.html">Farm Food</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-              
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="team.html">Meet Our Team</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="shop.html">Shop</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <div class="shopping-cart-container">
-                      <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-                      <p class="shopping-cart-count">0</p>
-                    </div>
-                  </li>
-                </ul>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="team.html">Meet Our Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item active">
+              <div class="shopping-cart-container">
+                <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
+                <p class="shopping-cart-count">0</p>
               </div>
-            </nav>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main class="container-fluid">
-      <div><h3 class="checkout-title">Bag</h3></div>
-      <div class="cart-container" style=" background-color: white; ">
-        <h3 style="padding-bottom: 10px;">10 Items</h3>
-        <div style="text-align: left; display:inline-flex; background-color: white; padding: 50px 50px;">
-          <img style="height: 150px; width:150px; " src="resources/shop-pictures/artichokes.jpg" alt="">
-          <div style="line-height: 0.75em; padding-left: 30px;">
-            <p>Artichokes</p>
-            <p>Item Price: $1</p>
-            <label for="">Qty:</label>
-            <input style="width: 10%;" class="cart-quantity-input" type="number" value="5">
-            <button style="padding:5px; margin-top: 5px;" type="button">Update Count</button>
-            <button style="padding:5px;" type="button">Remove Item</button>
+      <div class="cart-container">
+        <h1 class="cart-title">Bag</h1>
+        <h2 class="cart-subtitle"><span class="number-in-cart">0</span> Items</h2>
+        <div class="cart-items-container"></div>
+        <hr>
+        <div class="order-summary-container">
+            <h3 class="order-summary-title">Order Summary</h3>
+            <div class="order-summary-details">
+              <div class="order-detail"><p>Items: $<span id="totalPrice"></span></p></div>
+              <div class="order-detail"><p>Delivery: $0</p></div>
+              <div class="order-detail"><p>Taxes: $<span id="tax"></span></p></div>
+              <div class="order-detail"><p>Total: $<span id="totalPriceTax"></span></p></div>
+            </div>
           </div>
-        </div>
-        <div style="text-align: left; display:inline-flex; background-color: white; padding: 50px 50px;">
-          <img style="height: 150px; width:150px; " src="resources/shop-pictures/tomatoes.jpg" alt="">
-          <div style="line-height: 0.75em; padding-left: 30px;">
-            <p>Tomatoes</p>
-            <p>Item Price: $1</p>
-            <label for="">Qty:</label>
-            <input style="width: 10%;" class="cart-quantity-input" type="number" value="5">
-            <button style="padding:5px; margin-top: 5px;" type="button">Update Count</button>
-            <button class="remove-item" style="padding:5px;" type="button">Remove Item</button>
-          </div>
-        </div>
-        <div>
-          <hr style="color: black;">
-          <h3 style="padding-top: 20px;">Order Summary</h3>
-          <div>
-            <script>
-              onload = () =>
-              {
-                document.getElementById("totalPrice").innerText = 10; 
-              }
-            </script>
-            <p>
-              Items:   $<span id="totalPrice"></span>
-            </p>
-            <p>Shipping:   $0</p>
-           
-            <p>Taxes:   $<span id="tax">0.83</span></p>
-           
-            <p>Total:   $<span id="totalPriceTax">10.83</span></p>
-          </div>
-        </div>
-        <button style="padding: 5px; background-color: #5F7161;"><a style="text-decoration: none; padding: 5px 10px; color: #EFEAD8"  href="checkout.html">Proceed to Payment >> </a></button>
-</div>
+          <div class="pmt-btn-container"><a class="go-to-pmt-btn" href="checkout.html">Proceed to Payment >></a></div>
       </div>
     </main>
 
     <footer id="footer">
       <div class="curve">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#9DAB86" fill-opacity="1" d="M0,128L21.8,144C43.6,160,87,192,131,202.7C174.5,213,218,203,262,181.3C305.5,160,349,128,393,106.7C436.4,85,480,75,524,74.7C567.3,75,611,85,655,101.3C698.2,117,742,139,785,144C829.1,149,873,139,916,117.3C960,96,1004,64,1047,90.7C1090.9,117,1135,203,1178,234.7C1221.8,267,1265,245,1309,250.7C1352.7,256,1396,288,1418,304L1440,320L1440,320L1418.2,320C1396.4,320,1353,320,1309,320C1265.5,320,1222,320,1178,320C1134.5,320,1091,320,1047,320C1003.6,320,960,320,916,320C872.7,320,829,320,785,320C741.8,320,698,320,655,320C610.9,320,567,320,524,320C480,320,436,320,393,320C349.1,320,305,320,262,320C218.2,320,175,320,131,320C87.3,320,44,320,22,320L0,320Z"></path>
-      </svg>
-      <div class="section-2">
-        <p class="newsletter">Join our newsletter. <img src="https://img.icons8.com/color/48/000000/carrot.png"/></p>
-        <form class="email-subscribe">
-          <input class="w3-input w3-border w3-round" type="text" placeholder="Email">
-          <button>Subscribe</button>
-        </form>
-    </div>
-      <div class="copyright"><p>Copyright 2022 Erin Novoa</p></div>
-    </div>
-  </footer>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#9DAB86" fill-opacity="1" d="M0,128L21.8,144C43.6,160,87,192,131,202.7C174.5,213,218,203,262,181.3C305.5,160,349,128,393,106.7C436.4,85,480,75,524,74.7C567.3,75,611,85,655,101.3C698.2,117,742,139,785,144C829.1,149,873,139,916,117.3C960,96,1004,64,1047,90.7C1090.9,117,1135,203,1178,234.7C1221.8,267,1265,245,1309,250.7C1352.7,256,1396,288,1418,304L1440,320L1440,320L1418.2,320C1396.4,320,1353,320,1309,320C1265.5,320,1222,320,1178,320C1134.5,320,1091,320,1047,320C1003.6,320,960,320,916,320C872.7,320,829,320,785,320C741.8,320,698,320,655,320C610.9,320,567,320,524,320C480,320,436,320,393,320C349.1,320,305,320,262,320C218.2,320,175,320,131,320C87.3,320,44,320,22,320L0,320Z"></path>
+        </svg>
+        <div class="section-2">
+          <p class="newsletter">Join our newsletter. <img src="https://img.icons8.com/color/48/000000/carrot.png"/></p>
+          <form class="email-subscribe">
+            <input class="w3-input w3-border w3-round" type="text" placeholder="Email">
+            <button>Subscribe</button>
+          </form>
+        </div>
+        <div class="copyright"><p>Copyright 2022 Erin Novoa</p></div>
+      </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
