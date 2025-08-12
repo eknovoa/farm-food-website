@@ -4,9 +4,48 @@ console.log('My script is loading...');
 
 // empty array that will stored the shopping cart items
 let cart = JSON.parse(localStorage.getItem("shopping-items")) || [];
-
 const shop = document.getElementById('shop');
+const bag = document.querySelector('.cart-items-container');
+let freqMap = {};
 
+
+
+document.addEventListener("click", function(event) {
+  if (event.target.dataset.add) {
+    addToCart(event.target.dataset.add);
+  }
+  else if (event.target.dataset.remove) {
+    removeItem(event.target.dataset.remove);
+    generateBag();
+  }
+  else if (event.target.dataset.update) {
+    console.log('button to update clicked')
+    let itemId = event.target.dataset.update;
+    let newQuantity = Number(document.getElementById(`cart-qty-${itemId}`).value);
+    
+    if (newQuantity >= 0) {
+      updateItemCount(itemId, newQuantity);
+      generateBag();
+    }
+    else {
+      alert("Quantity must be a positive number.");
+    }
+  }
+  else if (event.target.dataset.ordered) {
+    console.log("order placed");
+    clearCart();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  generateShop();
+  generateBag();
+  updateCartCount();
+  generateCheckout();
+});
+
+
+/* Shop Functions */
 function getShopHtml() {
   let shopHtml = ``;
   
@@ -60,8 +99,7 @@ function getCartFrequency() {
   return frequencyMap;
 }
 
-const bag = document.querySelector('.cart-items-container');
-let freqMap = {};
+
 function getBagHtml() {
   let bagHtml = ``;
 
@@ -109,6 +147,7 @@ function generateBag() {
   }
 }
 
+
 function getFinalOrderSummary() {
   let [price, tax, totalPrice] = getOrderNumbers();
   console.log(price, tax, totalPrice);
@@ -140,17 +179,14 @@ function getFinalShoppingBag() {
   document.querySelector('.summary-container').innerHTML = getFinalShoppingBagHtml();
 }
 
+
 function generateCheckout() {
-  getFinalOrderSummary();
-  getFinalShoppingBag();
+  if (cart.length != 0) {
+    getFinalOrderSummary();
+    getFinalShoppingBag();
+  }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  generateShop();
-  generateBag();
-  updateCartCount();
-  generateCheckout();
-});
 
 function updateCartCount() {
   const cartCountElement = document.querySelector(".shopping-cart-count");
@@ -162,36 +198,6 @@ function updateCartCount() {
     cartCountElement.style.visibility = 'hidden';
   }
 }
-
-/* Add to Cart button */
-
-document.addEventListener("click", function(event) {
-  if (event.target.dataset.add) {
-    addToCart(event.target.dataset.add);
-  }
-  else if (event.target.dataset.remove) {
-    removeItem(event.target.dataset.remove);
-    generateBag();
-  }
-  else if (event.target.dataset.update) {
-    console.log('button to update clicked')
-    let itemId = event.target.dataset.update;
-    let newQuantity = Number(document.getElementById(`cart-qty-${itemId}`).value);
-    
-    if (newQuantity >= 0) {
-      updateItemCount(itemId, newQuantity);
-      generateBag();
-    }
-    else {
-      alert("Quantity must be a positive number.");
-    }
-  }
-  else if (event.target.dataset.ordered) {
-    console.log("order placed");
-    clearCart();
-  }
-});
-
 
 
 /* Cart Updates */
