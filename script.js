@@ -66,7 +66,7 @@ function getBagHtml() {
   let bagHtml = ``;
 
   if (cart.length !== 0) {
-
+    document.querySelector('.pmt-btn-container').style.display = 'block';
     document.querySelector('.number-in-cart').innerHTML = cart.length;
 
     freqMap = getCartFrequency();
@@ -109,10 +109,47 @@ function generateBag() {
   }
 }
 
+function getFinalOrderSummary() {
+  let [price, tax, totalPrice] = getOrderNumbers();
+  console.log(price, tax, totalPrice);
+  document.querySelector('.order-summary').innerHTML = `
+    <h3>Order Summary</h3>
+    <p>Items: $${price}</p>
+    <p>Delivery: $0 </p>
+    <p>Taxes: $${tax}</p>
+    <p>Total: $${totalPrice}</p>
+  `;
+}
+
+function getFinalShoppingBagHtml() {
+  let finalBag = '';
+  freqMap = getCartFrequency();
+  Object.entries(freqMap).forEach(([key, value]) => {
+      let obj = cart.find(item => Number(key) === item.id);
+    finalBag += `
+      <div class="summary-item">
+        <p class="summary-item-name">${obj.name} (${value})</p>
+        <p class="summary-item-price">$${(value * obj.price).toFixed(2)}</p>
+      </div>
+    `;
+  })
+  return finalBag;
+}
+
+function getFinalShoppingBag() {
+  document.querySelector('.summary-container').innerHTML = getFinalShoppingBagHtml();
+}
+
+function generateCheckout() {
+  getFinalOrderSummary();
+  getFinalShoppingBag();
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   generateShop();
   generateBag();
   updateCartCount();
+  generateCheckout();
 });
 
 function updateCartCount() {
@@ -149,6 +186,10 @@ document.addEventListener("click", function(event) {
       alert("Quantity must be a positive number.");
     }
   }
+  else if (event.target.dataset.ordered) {
+    console.log("order placed");
+    clearCart();
+  }
 });
 
 
@@ -184,4 +225,9 @@ function updateItemCount(targetId, newCount) {
   updateCartCount();
   document.querySelector('.number-in-cart').innerHTML = cart.length;
   location.reload();
+}
+
+function clearCart() {
+  localStorage.clear();
+  updateCartCount();
 }

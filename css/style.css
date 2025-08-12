@@ -245,6 +245,7 @@ header {
 
 .curve svg {
   display: block;
+  margin-bottom: 0px;
 }
 
 
@@ -261,7 +262,9 @@ header {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.05em;
+  padding-top: 30px;
 }
+
 
 #footer .section-2 {
   background-color: #9DAB86;
@@ -309,9 +312,6 @@ header {
 /* Contact Page Styling */
 
 .contact-form {
-  /* display: block; */
-  /* justify-content: center; */
-  /* align-items: center; */
   padding: 2em 0em;
   border: 2px solid #9DAB86;
   border-radius: 1em;
@@ -480,6 +480,7 @@ textarea#message {
 .pmt-btn-container {
   text-align: center;
   padding: 20px 0px;
+  display: none;
 }
 
 .go-to-pmt-btn {
@@ -536,7 +537,19 @@ lottie-player {
   margin: 0 auto;
 }
 
+.success-msg, .thank-you-msg {
+  text-align: center;
+}
 
+.success-msg {
+  margin-top: 50px;
+  font-size: 32px;
+}
+
+.thank-you-msg {
+  margin-top: 30px;
+  font-size: 28px;
+}
 
 
 /* Responsive Screen Styling */

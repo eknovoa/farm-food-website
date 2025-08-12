@@ -2,17 +2,12 @@
 
 .checkout-container {
   text-align: center;
-  display: block;
-  justify-content: center;
-  align-items: center;
   background-color: white;
   padding: 2em 0em;
   border: 2px solid #9DAB86;
   border-radius: 1em;
-  margin-left: 2em;
-  margin-right: 2em;
-  margin-top: 10em;
-  margin-bottom: 10em;
+  width: 80%;
+  margin: 5em auto 10em auto;
 }
 
 .checkout-sub-container {
@@ -22,41 +17,61 @@
 }
 
 .checkout-title {
-  position: relative;
-  top: 130px;
   text-align: center;
+  margin-top: 150px;
 }
 
 .pickup-information-container {
   margin: 30px 0px;
 }
 
+.shopping-bag-summary {
+  /* text-align: center; */
+}
+
 .summary-container {
-  text-align: left;
-  display:inline-flex;
-  background-color: white;
   padding: 50px 50px;
+  margin: 0 auto;
 }
 
 .summary-item {
   line-height: 0.75em;
   padding-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.summary-item-name {
+  margin-right: 5px;
+}
+
+.summary-item-price {
+  margin-left: 5px;
 }
 
 .promo-btn {
-  padding: 2px 10px;
+  padding: 5px 10px;
   background-color: #6D8B74;
+  border: none;
   color: #EFEAD8;
 }
 
-.place-order-btn {
-  padding: 5px;
-  background-color: #5F7161;
-  margin: 10px 0px;
+.promo-btn:hover {
+  opacity: 0.85;
 }
 
 .place-order-link {
   color: #EFEAD8;
   text-decoration:none;
-  padding: 5px 10px;               
+  padding: 5px 10px;
+  background-color: #5F7161;
+  margin: 10px 0px;            
+}
+
+.place-order-link:hover {
+  text-decoration: none;
+  color: #EFEAD8;
+  opacity: 0.85;
 }
