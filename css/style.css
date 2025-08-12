@@ -504,6 +504,10 @@ textarea#message {
   border-radius: 5px;
 }
 
+.no-items {
+  text-align: center;
+}
+
 .order-summary-container {
   text-align: center;
 }

@@ -4,11 +4,8 @@ console.log('My script is loading...');
 
 // empty array that will stored the shopping cart items
 let cart = JSON.parse(localStorage.getItem("shopping-items")) || [];
-console.log(cart);
-let currentAmount = 0;
 
 const shop = document.getElementById('shop');
-console.log(shop)
 
 function getShopHtml() {
   let shopHtml = ``;
@@ -18,7 +15,7 @@ function getShopHtml() {
     <div class="item-description" id=product-id-${item.id}>
       <img class="item-img" src="images/shop-pictures/${item.img}" alt="picture of ${item.name}">
       <h5 class="item-title">${item.name}</h5>
-      <h6 class="item-price">$${item.price} ${item.desc}</h6>
+      <h6 class="item-price">$${item.price.toFixed(2)} ${item.desc}</h6>
       <button class="add-cart-btn" data-add="${item.id}">Add to Cart</button>
     </div>
     `
@@ -51,8 +48,20 @@ function getOrderSummary() {
   document.getElementById('totalPriceTax').textContent = totalPrice;
 }
 
-const bag = document.querySelector('.cart-items-container');
+function getCartFrequency() {
+  let frequencyMap = {};
+  cart.forEach(function(item) {
+    if (frequencyMap[item.id]) {
+      frequencyMap[item.id] += 1;
+    } else {
+      frequencyMap[item.id] = 1;
+    }
+  });
+  return frequencyMap;
+}
 
+const bag = document.querySelector('.cart-items-container');
+let freqMap = {};
 function getBagHtml() {
   let bagHtml = ``;
 
@@ -60,22 +69,26 @@ function getBagHtml() {
 
     document.querySelector('.number-in-cart').innerHTML = cart.length;
 
-    cart.forEach(function(item) {
+    freqMap = getCartFrequency();
+    Object.entries(freqMap).forEach(([key, value]) => {
+      let obj = cart.find(item => Number(key) === item.id);
       bagHtml += `
         <div class="cart-item-container">
-              <div class="img-container"></div>
+              <div>
+                <img class="img-container" src="/images/shop-pictures/${obj.img}">
+              </div>
               <div class="cart-item-details">
                 <div class="cart-item-description">
-                  <p class="cart-item-name">${item.name}</p>
-                  <p class="cart-item-price">Item Price: $${item.price}</p> 
+                  <p class="cart-item-name">${obj.name}</p>
+                  <p class="cart-item-price">Item Price: $${obj.price.toFixed(2)}</p> 
                 </div>
                 <div>
-                  <label for="cart-qty">Qty:</label>
-                  <input class="cart-quantity-input" id="cart-qty" name="cart-qty" type="number" value="5">
+                  <label for="cart-qty-${key}">Qty:</label>
+                  <input class="cart-quantity-input" name="cart-qty" type="number" id="cart-qty-${key}" value="${value}">
                 </div>
                 <div class="cart-btns">
-                  <button class="cart-update-btn">Update Count</button>
-                  <button class="cart-remove-btn">Remove Item</button>
+                  <button class="cart-update-btn" data-update="${key}">Update Count</button>
+                  <button class="cart-remove-btn" data-remove="${key}">Remove Item</button>
                 </div>
               </div>
         </div>
@@ -119,7 +132,28 @@ document.addEventListener("click", function(event) {
   if (event.target.dataset.add) {
     addToCart(event.target.dataset.add);
   }
+  else if (event.target.dataset.remove) {
+    removeItem(event.target.dataset.remove);
+    generateBag();
+  }
+  else if (event.target.dataset.update) {
+    console.log('button to update clicked')
+    let itemId = event.target.dataset.update;
+    let newQuantity = Number(document.getElementById(`cart-qty-${itemId}`).value);
+    
+    if (newQuantity >= 0) {
+      updateItemCount(itemId, newQuantity);
+      generateBag();
+    }
+    else {
+      alert("Quantity must be a positive number.");
+    }
+  }
 });
+
+
+
+/* Cart Updates */
 
 function addToCart(id) {
   let foundItem = shopping_items.find(item => item.id === Number(id));
@@ -129,50 +163,25 @@ function addToCart(id) {
 }
 
 
+function removeItem(targetId) {
+  cart = cart.filter(item => item.id != Number(targetId));
+  localStorage.setItem("shopping-items", JSON.stringify(cart));
+  updateCartCount();
+  document.querySelector('.number-in-cart').innerHTML = cart.length;
+}
 
+function updateItemCount(targetId, newCount) {
+  
+  const filteredCart = cart.filter(item => item.id !== Number(targetId));
+  const itemToAdd = shopping_items.find(item => item.id === Number(targetId));
 
-/* Cart Updates */
-
-function increment(id) {
-  let selectedItem = id;
-  let search = cart.find((x) => x.id === selectedItem.id);
-
-  if (search === undefined) {
-    cart.push({id: selectedItem.id, item: 1});
+  for (let i=0; i < newCount; i++) {
+    filteredCart.push(itemToAdd);
   }
-  else {
-    search.item += 1;
-  }
-  console.log(cart);
-};
 
-function decrement(id) {
-  let selectedItem = id;
-  console.log(selectedItem.id);
-};
-
-function update(id) {
-  let search = cart.find((x) => x.id === id);
-  document.getElementById(id).innerHTML = search.item;
-  calculation();
-};
-
-function calculation (){
-  // let cartIcon = document.getElementById("cartAmount");
-  // cartIcon.innerHTML = cart.map((x) => x.item).reduce((x, y) => x + y, 0);
-};
-
-calculation();
-
-
-
-function createOrderSummary() {
-  document.querySelector(".order-summary").innerHTML = `
-    <p>Order Summary:</p>
-    <p>Items: $10.00</p>
-    <p>Shipping: $0.00</p>
-    <p>Tax: $0.83</p>
-    <p>Promo Code:</p>
-    <p>Order Total: $10.83</p>
-  `
+  cart = filteredCart;
+  localStorage.setItem("shopping-items", JSON.stringify(cart));
+  updateCartCount();
+  document.querySelector('.number-in-cart').innerHTML = cart.length;
+  location.reload();
 }
