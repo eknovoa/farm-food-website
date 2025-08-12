@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta author="Erin Novoa">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
@@ -76,7 +76,7 @@
             <label for="email">Email Address</label>
             <input id="email" name="email" type="email" placeholder="sherlock.holmes@gmail.com">
             <label for="phone">Phone Number</label>
-            <input id="phone" name="phone" type="number" placeholder="1234567890">
+            <input id="phone" name="phone" type="text" placeholder="(123) 456-7890">
             <label for="date">Pickup Date:</label>
             <input id="date" name="date" type="date">
           </form>
@@ -101,14 +101,14 @@
           <div class="billing-container">
             <p class="billing-title">Billing Address</p>
             <form class="billing-info-form" action="">
-              <input id="firstName" name="firstName" type="text" placeholder="First name" required>
-              <input id="lastName" name="lastName" type="text" placeholder="Last Name" required>
-              <input id="address" name="address" type="text" placeholder="Address" required>
-              <input type="text" placeholder="Apartment, suite, etc. (optional)">
-              <input type="text" placeholder="City" required>
-              <select></select>
-              <input type="text" placeholder="Zipcode" required>
-              <input type="number" placeholder="Phone">
+              <input id="firstName" name="firstName" type="text" placeholder="First name" aria-label="this is an input box to type your first name" required>
+              <input id="lastName" name="lastName" type="text" placeholder="Last Name" aria-label="this is an input box to type your last name" required>
+              <input id="address" name="address" type="text" placeholder="Address" aria-label="this is an input box to type your address" required>
+              <input id="address2" name="address2" type="text" placeholder="Apartment, suite, etc. (optional)" aria-label="this is an input box to type in the apartment number, suite number, etc.">
+              <input id="city" name="city" type="text" placeholder="City" aria-label="this is an input box to type in the city where your address resides" required>
+              <input id="state" name="state" type="text" placeholder="State" aria-label="this is an input box to type in the state where your address resides" required>
+              <input id="zipcode" name="zipcode" type="text" placeholder="Zipcode" aria-label="this is an input box to type in the zipcode where your address resides in" required>
+              <input id="phone" name="phone" type="text" placeholder="(123) 456-7890" aria-label="this is an input box to type in your phone number">
             </form>
           </div>
         </div>
@@ -123,7 +123,7 @@
           <div class="promo-code-container">
             <h3 class="promo-title">Promo Code:</h3>
             <form class="promo-form" action="">
-              <input id="" name="" type="text" placeholder="">
+              <input id="promo" name="promo" type="text" placeholder="" aria-label="an input box to add in a promo code">
             </form>
             <button class="promo-btn">Apply</button>
           </div>
